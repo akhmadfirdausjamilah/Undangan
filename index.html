@@ -1494,8 +1494,13 @@ method:"POST",
 body:JSON.stringify({nama,hadir,ucapan})  
 });  
 });  
-  
 
+    document.getElementById("rsvp-form").reset();
+  loadUcapan(); // reload data ucapan
+    alert("Ucapan berhasil dikirim!");
+    document.getElementById("daftarUcapan").scrollIntoView({behavior:"smooth"});
+setInterval(loadUcapan, 5000);
+    });
 function showGift(type){  
   
 document.getElementById("cashless").style.display="none";  
