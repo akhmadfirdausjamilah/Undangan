@@ -1379,7 +1379,12 @@ const guest = urlParams.get('to');
 if(guest){  
 document.getElementById("guestName").textContent = guest.replace(/%20/g," ");  
 }  
-
+document.addEventListener("DOMContentLoaded", function() {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.display = "none";
+  }
+});
 function openInvitation(){
 
 document.body.classList.remove("lock-scroll");
