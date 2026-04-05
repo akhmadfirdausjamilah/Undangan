@@ -1481,23 +1481,7 @@ box.innerHTML += `
 loadUcapan();  
   
   
-document.getElementById("rsvp-form")  
-.addEventListener("submit",async function(e){  
-  
-e.preventDefault();  
-  
-let nama=document.getElementById("nama").value;  
-let hadir=document.getElementById("hadir").value;  
-let ucapan=document.getElementById("ucapan").value;  
-  let btn = document.querySelector("button[type=submit]");
-btn.innerText = "Mengirim...";
-btn.disabled = true;
-    
-await fetch(API_URL,{  
-method:"POST",  
-body:JSON.stringify({nama,hadir,ucapan})  
-});  
-});  
+
     document.getElementById("rsvp-form")
 .addEventListener("submit", async function(e){
 
@@ -1518,6 +1502,8 @@ body:JSON.stringify({nama,hadir,ucapan})
 
   btn.innerText = "Kirim";
   btn.disabled = false;
+    if(btn.disabled) return;
+btn.disabled = true;
 
   document.getElementById("rsvp-form").reset();
   loadUcapan();
